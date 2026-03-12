@@ -1,6 +1,6 @@
 <div align="center">
   
-#Distributed Autonomous Opportunity Intelligence and Strategic Application Orchestration System
+# Distributed Autonomous Opportunity Intelligence and Strategic Application Orchestration System
 
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.111-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
