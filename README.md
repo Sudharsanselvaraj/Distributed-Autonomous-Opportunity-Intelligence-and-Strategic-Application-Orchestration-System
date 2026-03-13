@@ -1,8 +1,6 @@
 <div align="center">
 
-# D.A.O.I.S.A.O.S
-
-### Distributed Autonomous Opportunity Intelligence and Strategic Application Orchestration System
+# Applivo-Distributed-Opportunity-Application-Orchestration-System
 
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.111-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
