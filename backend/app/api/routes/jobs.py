@@ -19,6 +19,22 @@ from app.schemas import JobOut, JobCreate, JobFilter, PaginatedResponse, Message
 router = APIRouter(prefix="/jobs", tags=["Jobs"])
 
 
+@router.post("/scrape", response_model=MessageResponse)
+async def trigger_scrape(
+    current_user: User = Depends(get_current_user),
+):
+    """Trigger the job scraping agent to run."""
+    try:
+        from app.agents.tasks import run_main_agent_cycle
+        run_main_agent_cycle.delay()
+        return MessageResponse(message="Scraping started - jobs will be added shortly")
+    except Exception as e:
+        import structlog
+        log = structlog.get_logger()
+        log.error("Failed to queue scraping task", error=str(e))
+        raise HTTPException(status_code=500, detail="Failed to start scraping")
+
+
 @router.get("", response_model=PaginatedResponse)
 async def list_jobs(
     page: int = Query(default=1, ge=1),
