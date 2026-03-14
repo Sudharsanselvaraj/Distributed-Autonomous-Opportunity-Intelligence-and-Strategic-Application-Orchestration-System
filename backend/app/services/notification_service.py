@@ -255,10 +255,10 @@ class NotificationService:
         ) or "No new jobs today."
 
         body = (
-            f"📊 *Daily Career Summary*\n\n"
-            f"🔍 Jobs Found Today: {jobs_today}\n"
-            f"📝 Applications Sent: {apps_today}\n\n"
-            f"🏆 Top Matches:\n{job_lines}"
+            f"Daily Career Summary\n\n"
+            f"Jobs Found Today: {jobs_today}\n"
+            f"Applications Sent: {apps_today}\n\n"
+            f"Top Matches:\n{job_lines}"
         )
 
         await self.notify(

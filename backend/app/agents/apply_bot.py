@@ -111,7 +111,7 @@ class ApplyBot:
                 # Send success notification
                 from app.services.job_analyzer import NotificationService
                 await NotificationService().notify(
-                    title=f"✅ Applied — {job.company_name if job else 'Company'}",
+                    title=f"Applied - {job.company_name if job else 'Company'}",
                     body=f"Successfully applied to {job.title if job else 'role'} at {job.company_name if job else 'company'}.",
                     event_type="application_submitted",
                 )

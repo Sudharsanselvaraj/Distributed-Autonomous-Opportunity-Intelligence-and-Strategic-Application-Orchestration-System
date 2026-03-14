@@ -98,7 +98,7 @@ async def register(payload: UserCreate, db: AsyncSession = Depends(get_db)):
         from app.services.notification_service import NotificationService
         notif_service = NotificationService()
         await notif_service.notify(
-            title="Welcome to AI Career Platform! 🎉",
+            title="Welcome to AI Career Platform!",
             body=f"Hi {payload.full_name}!\n\nWelcome to your AI-powered career assistant. Here's what you can do:\n\n• Set up your profile with skills & experience\n• Upload your resume for AI-powered tailoring\n• Connect platform credentials for auto-apply\n• Let AI find and apply to jobs for you\n\nGet started at: /dashboard\n\nBest,\nThe AI Career Team",
             event_type="user_welcome"
         )

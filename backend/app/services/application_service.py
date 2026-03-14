@@ -137,14 +137,14 @@ class ApplicationService:
             if queued > 0:
                 from app.services.job_analyzer import NotificationService
                 await NotificationService().notify(
-                    title=f"📝 {queued} Applications Queued",
+                    title=f"{queued} Applications Queued",
                     body=f"{queued} jobs matched your criteria and are {'waiting for approval' if profile.require_apply_approval else 'being applied to automatically'}.",
                     event_type="applications_queued",
                     data={"count": queued},
                     telegram_markup={
                         "inline_keyboard": [[
-                            {"text": "✅ Approve All", "callback_data": "approve_all"},
-                            {"text": "👀 Review", "callback_data": "review_applications"},
+                            {"text": "[Approve All]", "callback_data": "approve_all"},
+                            {"text": "[Review]", "callback_data": "review_applications"},
                         ]]
                     } if profile.require_apply_approval else None,
                 )

@@ -236,9 +236,9 @@ User Profile:
 
             return f"""
 === PLATFORM STATUS ===
-📊 Jobs scraped today: {jobs_today_count}
-📈 Total active jobs in database: {total_active_count}
-🤖 Auto-apply: {'Enabled' if profile and profile.auto_apply_enabled else 'Disabled (check profile settings)'}
+Jobs scraped today: {jobs_today_count}
+Total active jobs in database: {total_active_count}
+Auto-apply: {'Enabled' if profile and profile.auto_apply_enabled else 'Disabled (check profile settings)'}
 
 === USER CAREER STATUS ===
 

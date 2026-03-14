@@ -462,7 +462,7 @@ class OnboardingService:
             from app.services.notification_service import NotificationService
             notif_service = NotificationService()
             await notif_service.notify(
-                title="🎉 Onboarding Complete!",
+                title="Onboarding Complete!",
                 body=f"Welcome aboard, {self.user.full_name}! Your profile is all set up.\n\nYou can now:\n• Browse and search jobs\n• Let AI apply to jobs for you\n• Get interview notifications\n\nReady to find your dream job?",
                 event_type="onboarding_complete"
             )
