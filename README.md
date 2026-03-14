@@ -36,17 +36,17 @@ Applivo is built around three core principles:
 
 ```
 ╔══════════════════════════════════════════════════════════════════════╗
-║                        PRESENTATION LAYER                           ║
-║              Next.js 18 · TailwindCSS · App Router                  ║
-║   Dashboard · Jobs · Applications · Resumes · Chat · Analytics      ║
+║                        PRESENTATION LAYER                            ║
+║              Next.js 18 · TailwindCSS · App Router                   ║
+║   Dashboard · Jobs · Applications · Resumes · Chat · Analytics       ║
 ╚══════════════════════════╤═══════════════════════════════════════════╝
                            │  HTTPS / JWT Bearer (HS256)
 ╔══════════════════════════▼═══════════════════════════════════════════╗
-║                       APPLICATION LAYER                             ║
-║         FastAPI 0.111 · Uvicorn · SQLAlchemy (asyncpg)             ║
+║                       APPLICATION LAYER                              ║
+║         FastAPI 0.111 · Uvicorn · SQLAlchemy (asyncpg)               ║
 ║                                                                      ║
-║  /auth   /jobs   /applications   /resumes   /agent                  ║
-║  /chat   /analytics   /security   /onboarding   /profile            ║
+║  /auth   /jobs   /applications   /resumes   /agent                   ║
+║  /chat   /analytics   /security   /onboarding   /profile             ║
 ╚══════════╤══════════════════════════════╤════════════════════════════╝
  async ORM │                              │ Celery .apply_async()
 ╔══════════▼════════════════╗   ╔═════════▼═════════════════════════╗
@@ -54,7 +54,7 @@ Applivo is built around three core principles:
 ║                           ║   ║                                   ║
 ║  PostgreSQL 15+           ║   ║  Queue: scraping                  ║
 ║  ┌─────────────────────┐  ║   ║  ├─ LinkedInScraper   10 req/min  ║
-║  │ users               │  ║   ║  ├─ IndeedScraper      20 req/min  ║
+║  │ users               │  ║   ║  ├─ IndeedScraper      20 req/min ║
 ║  │ user_profiles       │  ║   ║  ├─ IntershalaScraper  default    ║
 ║  │ jobs + analyses     │◄─╫───╫─ └─ WellfoundScraper   default    ║
 ║  │ applications        │  ║   ║                                   ║
@@ -71,19 +71,19 @@ Applivo is built around three core principles:
 ║  ┌─────────────────────┐  ║   ║  └─ send_email_notification       ║
 ║  │ user_profile embeds │  ║   ║                                   ║
 ║  │ job embeddings      │  ║   ║  Celery Beat (cron scheduler)     ║
-║  │ resume embeddings   │  ║   ║  ├─ run_main_agent_cycle  / 6h   ║
-║  │ RAG retrieval       │  ║   ║  ├─ check_follow_ups      / 1h   ║
-║  └─────────────────────┘  ║   ║  ├─ take_market_snapshot  / 24h  ║
-║                           ║   ║  └─ update_resume_perf    / 6h   ║
+║  │ resume embeddings   │  ║   ║  ├─ run_main_agent_cycle  / 6h    ║
+║  │ RAG retrieval       │  ║   ║  ├─ check_follow_ups      / 1h    ║
+║  └─────────────────────┘  ║   ║  ├─ take_market_snapshot  / 24h   ║
+║                           ║   ║  └─ update_resume_perf    / 6h    ║
 ║  Redis 7                  ║   ║                                   ║
 ║  db0 → Celery broker      ║   ║  Flower monitoring UI             ║
 ║  db1 → result backend     ║   ║  localhost:5555                   ║
 ╚═══════════════════════════╝   ╚═══════════════════════════════════╝
 ╔══════════════════════════════════════════════════════════════════════╗
-║                       EXTERNAL SERVICES                             ║
-║  Groq API (llama3-70b-8192 · llama3-8b-8192 · text-embedding-*)    ║
-║  Telegram Bot API · Gmail SMTP (aiosmtplib)                         ║
-║  LinkedIn · Indeed · Internshala · Wellfound (Playwright/aiohttp)   ║
+║                       EXTERNAL SERVICES                              ║
+║  Groq API (llama3-70b-8192 · llama3-8b-8192 · text-embedding-*)      ║
+║  Telegram Bot API · Gmail SMTP (aiosmtplib)                          ║
+║  LinkedIn · Indeed · Internshala · Wellfound (Playwright/aiohttp)    ║
 ╚══════════════════════════════════════════════════════════════════════╝
 ```
 
